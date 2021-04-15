@@ -26,3 +26,8 @@
 *.tlog
 *.idb
 *.recipe
+*.db
+
+## dir
+Debug/
+
