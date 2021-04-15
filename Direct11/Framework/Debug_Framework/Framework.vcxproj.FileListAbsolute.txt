@@ -1,0 +1,6 @@
+C:\Dx2\Framework\Debug\Framework.pdb
+C:\Dx2\Framework\Debug_Framework\Framework.pdb
+C:\Direct11\Framework\Debug\Framework.pdb
+C:\Direct11\Framework\Debug_Framework\Framework.pdb
+C:\Dx11\Direct11\Framework\Debug\Framework.pdb
+C:\Dx11\Direct11\Framework\Debug_Framework\Framework.pdb
