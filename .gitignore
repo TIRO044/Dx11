@@ -22,3 +22,7 @@
 *.pidb
 *.svclog
 *.scc
+*.ipch
+*.tlog
+*.idb
+*.recipe
