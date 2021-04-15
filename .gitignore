@@ -27,6 +27,10 @@
 *.idb
 *.recipe
 *.db
+*.db-shm
+*.db-wal
+*.opendb
+*.suo
 
 ## dir
 Debug/
