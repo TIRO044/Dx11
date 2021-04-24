@@ -2,9 +2,11 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
+#include "Vertex_Line.h"
+
 void Main::Initialize()
 {
-
+	Push(new Vertex_Line());
 }
 
 void Main::Ready()
