@@ -3,7 +3,7 @@
 
 void Vertex_Line::Initialize()
 {
-	shader = new Shader(L"01_Vertex.fx");
+	shader = new Shader(L"01_VertexShader.fx");
 
 	vertices[0].Position = Vector3(0.0f, 0.0f, 0.0f);
 	vertices[1].Position = Vector3(1.0f, 0.0f, 0.0f);
@@ -22,6 +22,24 @@ void Vertex_Line::Initialize()
 	Check(D3D::GetDevice()->CreateBuffer(&desc, &subResource, &vertexBuffer));
 }
 
+void Vertex_Line::Ready()
+{
+	
+}
+void Vertex_Line::PreRender()
+{
+
+}
+void Vertex_Line::PostRender()
+{
+
+}
+void Vertex_Line::ResizeScreen()
+{
+
+}
+
+
 void Vertex_Line::Destroy()
 {
 	SafeDelete(shader);
@@ -37,13 +55,11 @@ void Vertex_Line::Render()
 {
 	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
-	
+
+	// IA는 파이프 라인이라는 것을 말한다
 	D3D::GetDC()->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
 	// 어떤 모양으로 그릴 것이냐?
-	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
 	shader->Draw(0, 0, 2);
 }
-
-
-
