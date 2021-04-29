@@ -15,7 +15,7 @@ public:
 
 private :
 	Shader* shader;
-	Vertex vertices[2];
+	Vertex vertices[6];
 
 	ID3D11Buffer* vertexBuffer;
 };
