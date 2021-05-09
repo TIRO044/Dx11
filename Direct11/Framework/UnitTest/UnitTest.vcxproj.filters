@@ -6,6 +6,9 @@
     <ClCompile Include="Vertex_Line.cpp">
       <Filter>VertexShader</Filter>
     </ClCompile>
+    <ClCompile Include="WorldDemo.cpp">
+      <Filter>WorldDemo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -13,10 +16,16 @@
     <ClInclude Include="Vertex_Line.h">
       <Filter>VertexShader</Filter>
     </ClInclude>
+    <ClInclude Include="WorldDemo.h">
+      <Filter>WorldDemo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="VertexShader">
       <UniqueIdentifier>{e24b6315-cd31-4502-8707-3ef853d0cc15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldDemo">
+      <UniqueIdentifier>{5db2f4dd-09dc-493c-a5e9-f48afbe57b25}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

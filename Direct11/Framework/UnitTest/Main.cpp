@@ -3,10 +3,11 @@
 #include "Systems/Window.h"
 
 #include "Vertex_Line.h"
+#include "WorldDemo.h"
 
 void Main::Initialize()
 {
-	Push(new Vertex_Line());
+	Push(new World_Demo());
 }
 
 void Main::Ready()
