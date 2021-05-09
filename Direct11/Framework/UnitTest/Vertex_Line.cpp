@@ -45,14 +45,11 @@ void Vertex_Line::ResizeScreen()
 
 }
 
-
 void Vertex_Line::Destroy()
 {
 	SafeDelete(shader);
 	SafeRelease(vertexBuffer);
 }
-
-
 
 void Vertex_Line::Update()
 {

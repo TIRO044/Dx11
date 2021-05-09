@@ -18,6 +18,6 @@ private :
 	Vertex vertices[6];
 
 	ID3D11Buffer* vertexBuffer;
-
-	Matrix world;
+	UINT Index;
+	Matrix world[3];
 };

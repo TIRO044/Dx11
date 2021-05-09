@@ -3,7 +3,7 @@
 
 void World_Demo::Initialize()
 {
-	shader = new Shader(L"WorldShader.fx");
+	shader = new Shader(L"MultiWorldShader.fx");
 
 	vertices[0].Position = Vector3(-0.5f, 0.0f, 0.0f);
 	vertices[1].Position = Vector3(-0.5f, 0.5f, 0.0f);
@@ -27,7 +27,10 @@ void World_Demo::Initialize()
 
 	Check(D3D::GetDevice()->CreateBuffer(&desc, &subResource, &vertexBuffer));
 
-	D3DXMatrixIdentity(&world);
+	for (auto i = 0; i < 3; i++)
+	{
+		D3DXMatrixIdentity(&world[i]);
+	}
 }
 
 void World_Demo::Ready()
@@ -47,30 +50,45 @@ void World_Demo::ResizeScreen()
 
 }
 
-
 void World_Demo::Destroy()
 {
 	SafeDelete(shader);
 	SafeRelease(vertexBuffer);
 }
 
-
 void World_Demo::Update()
 {
-	// 이 행위만 했을 땐 RAM메모리에만 존재하기 떄문에 의미가 없는 행위
-	if (Keyboard::Get()->Press(VK_RIGHT))
+	ImGui::InputInt("Index", reinterpret_cast<int*>(&Index));
+	Index %=  3;
+
+	if (Keyboard::Get()->Press(VK_CONTROL))
 	{
-		world._12 += 2.0f * Time::Delta();
+		if (Keyboard::Get()->Press(VK_RIGHT))
+		{
+			world[Index]._22 += 2.0f * Time::Delta();
+		}
+		else if (Keyboard::Get()->Press(VK_LEFT))
+		{
+			world[Index]._22 -= 2.0f * Time::Delta();
+		}
+
 	}
-	else if (Keyboard::Get()->Press(VK_LEFT))
+	else
 	{
-		world._13 -= 2.0f * Time::Delta();
+		if (Keyboard::Get()->Press(VK_RIGHT))
+		{
+			world[Index]._41 += 2.0f * Time::Delta();
+		}
+		else if (Keyboard::Get()->Press(VK_LEFT))
+		{
+			world[Index]._41 -= 2.0f * Time::Delta();
+		}
+
 	}
 }
 
 void World_Demo::Render()
 {
-	shader->AsMatrix("World")->SetMatrix(world);
 	shader->AsMatrix("View")->SetMatrix(Context::Get()->View());
 	shader->AsMatrix("Projection")->SetMatrix(Context::Get()->Projection());
 
@@ -82,5 +100,10 @@ void World_Demo::Render()
 	// 어떤 모양으로 그릴 것이냐?
 	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	shader->Draw(0, 0, 6, 0);
+	for (auto i = 0; i < 3; i++)
+	{
+		shader->AsScalar("Index")->SetInt(i + 1);
+		shader->AsMatrix("World")->SetMatrix(world[i]);
+		shader->Draw(0, 0, 6, 0);
+	}
 }
