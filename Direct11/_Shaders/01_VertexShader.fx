@@ -40,16 +40,24 @@ float4 PS_B(VertexOutput input) : SV_Target
     return float4(0, 0, 1, 1);
 }
 
+RasterizerState FillMode_WireFrame
+{
+    FillMode = Wireframe;
+};
+
 technique11 TQ
 {
 	pass P0
 	{
+        SetRasterizerState(FillMode_WireFrame);
 		SetVertexShader(CompileShader(vs_5_0, VS()));
         SetPixelShader(CompileShader(ps_5_0, PS_R()));
     }
 
     pass P1
     {
+        SetRasterizerState(FillMode_WireFrame);
+
         SetVertexShader(CompileShader(vs_5_0, VS()));
         SetPixelShader(CompileShader(ps_5_0, PS_G()));
     }
