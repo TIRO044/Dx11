@@ -5,13 +5,13 @@ void Vertex_Line::Initialize()
 {
 	shader = new Shader(L"01_VertexShader.fx");
 
-	vertices[0].Position = Vector3(0.5f, 0.0f, 0.0f);
-	vertices[1].Position = Vector3(-0.5f, 0.0f, 0.0f);
-	vertices[2].Position = Vector3(0.0f, 0.3f, 0.0f);
+	vertices[0].Position = Vector3(-0.5f, 0.0f, 0.0f);
+	vertices[1].Position = Vector3(-0.5f, 0.5f, 0.0f);
+	vertices[2].Position = Vector3(0.5f, 0.0f, 0.0f);
 
-	vertices[3].Position = Vector3(0.5f, 0.3f, 0.0f);
-	vertices[4].Position = Vector3(-0.5f, 0.3f, 0.0f);
-	vertices[5].Position = Vector3(0.0f, 0.6f, 0.0f);
+	vertices[3].Position = Vector3(-0.5f, 0.5f, 0.0f);
+	vertices[4].Position = Vector3(0.5f, 0.5f, 0.0f);
+	vertices[5].Position = Vector3(0.5f, 0.0f, 0.0f);
 
 	// DESC는 내림 차순이라는 의미
 	// https://docs.microsoft.com/en-us/windows/win32/api/d3d11/ns-d3d11-d3d11_buffer_desc
@@ -52,13 +52,37 @@ void Vertex_Line::Destroy()
 	SafeRelease(vertexBuffer);
 }
 
+
+
 void Vertex_Line::Update()
 {
+	// 이 행위만 했을 땐 RAM메모리에만 존재하기 떄문에 의미가 없는 행위
+	static bool bOpen = false;
+	if (Keyboard::Get()->Press(VK_RIGHT))
+	{
+		vertices[0].Position.x += 3.0f * Time::Delta();
+	}
+	else if (Keyboard::Get()->Press(VK_LEFT))
+	{
+		vertices[0].Position.x -= 3.0f * Time::Delta();
+	} else if (Keyboard::Get()->Press(VK_SPACE))
+	{
+		bOpen = !bOpen;
+	}
+	if (bOpen) ImGui::ShowDemoWindow(&bOpen);
+	// VRAM(gpu) 쪽으로 복사를 해야 한다.
+
+	static float y = 0.5f;
+	ImGui::SliderFloat("Y", &y, -1, +1);
+	vertices[1].Position.y = y;
 	
+	D3D::GetDC()->UpdateSubresource(vertexBuffer, 0, NULL, vertices, sizeof(Vertex) * 6, 0);
 }
 
 void Vertex_Line::Render()
 {
+	
+	
 	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
 
