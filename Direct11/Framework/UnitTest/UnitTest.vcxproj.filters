@@ -9,6 +9,9 @@
     <ClCompile Include="WorldDemo.cpp">
       <Filter>WorldDemo</Filter>
     </ClCompile>
+    <ClCompile Include="IndexDemo.cpp">
+      <Filter>IndexDemo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -19,6 +22,9 @@
     <ClInclude Include="WorldDemo.h">
       <Filter>WorldDemo</Filter>
     </ClInclude>
+    <ClInclude Include="IndexDemo.h">
+      <Filter>IndexDemo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="VertexShader">
@@ -26,6 +32,9 @@
     </Filter>
     <Filter Include="WorldDemo">
       <UniqueIdentifier>{5db2f4dd-09dc-493c-a5e9-f48afbe57b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IndexDemo">
+      <UniqueIdentifier>{f6c0c9f8-890a-45fb-b15e-26f3ee8da414}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

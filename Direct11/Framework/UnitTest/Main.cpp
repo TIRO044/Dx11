@@ -2,12 +2,13 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
+#include "IndexDemo.h"
 #include "Vertex_Line.h"
 #include "WorldDemo.h"
 
 void Main::Initialize()
 {
-	Push(new World_Demo());
+	Push(new IndexDemo());
 }
 
 void Main::Ready()

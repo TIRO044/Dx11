@@ -67,19 +67,17 @@ void Vertex_Line::Update()
 		bOpen = !bOpen;
 	}
 	if (bOpen) ImGui::ShowDemoWindow(&bOpen);
-	// VRAM(gpu) 쪽으로 복사를 해야 한다.
-
+	
 	static float y = 0.5f;
 	ImGui::SliderFloat("Y", &y, -1, +1);
 	vertices[1].Position.y = y;
 	
+	// VRAM(gpu) 쪽으로 복사를 해야 한다.
 	D3D::GetDC()->UpdateSubresource(vertexBuffer, 0, NULL, vertices, sizeof(Vertex) * 6, 0);
 }
 
 void Vertex_Line::Render()
 {
-	
-	
 	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
 
