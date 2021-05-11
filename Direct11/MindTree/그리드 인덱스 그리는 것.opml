@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<opml version="1.0">
+  <head />
+  <body>
+    <outline text="그리드 인덱스 그리는 것">
+      <outline text="버텍스 카운트">
+        <outline text="(width + 1) * (height + 1)" />
+      </outline>
+      <outline text="인덱스 카운트">
+        <outline text="(.width * height * 6)" />
+      </outline>
+      <outline text="좌하단 인덱스">
+        <outline text="(width[칸 수] + 1) * y + x " />
+        <outline text="ex">
+          <outline text="3 x 3" />
+          <outline text="x : 2, y : 1">
+            <outline text="(3 + 1) *  1 + 2" />
+            <outline text="== 6" />
+          </outline>
+        </outline>
+      </outline>
+      <outline text="우 하단 인덱스">
+        <outline text="(width + 1) * y + x + 1" />
+      </outline>
+      <outline text="좌 상단 인덱스">
+        <outline text="(width + 1) + (y + 1) + x" />
+      </outline>
+      <outline text="우 상단 인덱스">
+        <outline text="(width + 1) + (y + 1) + x + 1" />
+      </outline>
+    </outline>
+  </body>
+</opml>

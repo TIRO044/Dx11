@@ -12,6 +12,9 @@
     <ClCompile Include="IndexDemo.cpp">
       <Filter>IndexDemo</Filter>
     </ClCompile>
+    <ClCompile Include="GridDemo.cpp">
+      <Filter>GridDemo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -25,6 +28,9 @@
     <ClInclude Include="IndexDemo.h">
       <Filter>IndexDemo</Filter>
     </ClInclude>
+    <ClInclude Include="GridDemo.h">
+      <Filter>GridDemo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="VertexShader">
@@ -35,6 +41,9 @@
     </Filter>
     <Filter Include="IndexDemo">
       <UniqueIdentifier>{f6c0c9f8-890a-45fb-b15e-26f3ee8da414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridDemo">
+      <UniqueIdentifier>{79946ff5-ef2a-4433-89c8-df21d51b36f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
