@@ -16,9 +16,9 @@ void GridDemo::Initialize()
 			{
 				UINT index = (width + 1) * h + w;
 
-				vertices[index].Position.x = (float)w;
+				vertices[index].Position.x = 0;
 				vertices[index].Position.y = (float)h;
-				vertices[index].Position.z = 0;
+				vertices[index].Position.z = (float)w;
 			}
 		}
 

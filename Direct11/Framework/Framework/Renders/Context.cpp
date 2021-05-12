@@ -31,13 +31,7 @@ Context::Context()
 	perspective = new Perspective(desc.Width, desc.Height);
 	viewport = new Viewport(desc.Width, desc.Height);
 
-
-	position = D3DXVECTOR3(0, 0, -10);
-	D3DXVECTOR3 forward(0, 0, 1);
-	D3DXVECTOR3 right(1, 0, 0);
-	D3DXVECTOR3 up(0, 1, 0);
-
-	D3DXMatrixLookAtLH(&view, &position, &(position + forward), &up);
+	position = Vector3(0, 0, -10);
 }
 
 Context::~Context()
@@ -54,7 +48,13 @@ void Context::ResizeScreen()
 
 void Context::Update()
 {
+	ImGui::SliderFloat3("Position", position, -100, 100);
 	
+	Vector3 forward(0, 0, 1);
+	Vector3 right(1, 0, 0);
+	Vector3 up(0, 1, 0);
+
+	D3DXMatrixLookAtLH(&view, &position, &(position + forward), &up);
 }
 
 void Context::Render()
