@@ -534,7 +534,7 @@ void TextureCube::Position(Vector3 & position)
 {
 	this->position = position;
 
-	//Create Camera
+	//Create camera
 	{
 		float x = position.x;
 		float y = position.y;

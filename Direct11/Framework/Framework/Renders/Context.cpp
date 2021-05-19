@@ -1,5 +1,7 @@
 #include "Framework.h"
 #include "Context.h"
+
+#include "Freedom.h"
 #include "Viewer/Viewport.h"
 #include "Viewer/Perspective.h"
 
@@ -31,13 +33,15 @@ Context::Context()
 	perspective = new Perspective(desc.Width, desc.Height);
 	viewport = new Viewport(desc.Width, desc.Height);
 
-	position = Vector3(0, 0, -10);
+	//position = Vector3(0, 0, -10);
+	camera = new Freedom();
 }
 
 Context::~Context()
 {
 	SafeDelete(perspective);
 	SafeDelete(viewport);
+	SafeDelete(camera);
 }
 
 void Context::ResizeScreen()
@@ -48,13 +52,22 @@ void Context::ResizeScreen()
 
 void Context::Update()
 {
-	ImGui::SliderFloat3("Position", position, -100, 100);
+	camera->Update();
+	/*ImGui::SliderFloat3("Position", position, -100, 100);
 	
 	Vector3 forward(0, 0, 1);
 	Vector3 right(1, 0, 0);
 	Vector3 up(0, 1, 0);
 
-	D3DXMatrixLookAtLH(&view, &position, &(position + forward), &up);
+	D3DXMatrixLookAtLH(&view, &position, &(position + forward), &up);*/
+}
+
+Matrix Context::View()
+{
+	Matrix matrix;
+	camera->GetMatrix(&matrix);
+
+	return matrix;
 }
 
 void Context::Render()

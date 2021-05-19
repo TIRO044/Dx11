@@ -1,4 +1,5 @@
 #pragma once
+#include "Viewer/Camera.h"
 
 class Context
 {
@@ -17,7 +18,7 @@ public:
 	void Update();
 	void Render();
 
-	Matrix View() { return view; }
+	Matrix View();
 	Matrix Projection();
 
 	class Perspective* GetPerspective() { return perspective; }
@@ -29,7 +30,5 @@ private:
 private:
 	class Perspective* perspective;
 	class Viewport* viewport;
-
-	Vector3 position;
-	Matrix view;
+	class Camera* camera;
 };
