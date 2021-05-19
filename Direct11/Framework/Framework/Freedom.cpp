@@ -3,6 +3,7 @@
 
 Freedom::Freedom()
 {
+
 }
 
 Freedom::~Freedom()
@@ -11,8 +12,6 @@ Freedom::~Freedom()
 
 void Freedom::Update()
 {
-	if (Mouse::Get()->Press(1) == false) return;
-
 	Vector3 f = Forward();
 	Vector3 u = Up();
 	Vector3 r = Right();
@@ -21,12 +20,12 @@ void Freedom::Update()
 	{
 		Vector3 p;
 		Position(&p);
-		
-		if(Keyboard::Get()->Press('W'))
+
+		if (Keyboard::Get()->Press('W'))
 		{
 			p = p + f * move * Time::Delta();
 		}
-		else if(Keyboard::Get()->Press('S'))
+		else if (Keyboard::Get()->Press('S'))
 		{
 			p = p - f * move * Time::Delta();
 		}
@@ -49,9 +48,12 @@ void Freedom::Update()
 			p = p - r * move * Time::Delta();
 		}
 
+		ImGui::SliderFloat3("Position", p, -100, 100);
+
 		Position(p);
 	}
-
+	
+	if (Mouse::Get()->Press(1) == false) return;
 	// Rotation
 	{
 		Vector3 R;
