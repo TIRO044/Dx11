@@ -2,6 +2,8 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
+#include "TextureDemo.h"
+#include "CubeDemo.h"
 #include "GridDemo.h"
 #include "IndexDemo.h"
 #include "Vertex_Line.h"
@@ -9,7 +11,10 @@
 
 void Main::Initialize()
 {
-	Push(new GridDemo());
+	Push(new TextureDemo());
+	//Push(new GridDemo());
+	//Push(new CubeDemo());*/
+	//Push(new IndexDemo());
 }
 
 void Main::Ready()

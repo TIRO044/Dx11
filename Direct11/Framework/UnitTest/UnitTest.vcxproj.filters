@@ -15,6 +15,15 @@
     <ClCompile Include="GridDemo.cpp">
       <Filter>GridDemo</Filter>
     </ClCompile>
+    <ClCompile Include="CubeDemo.cpp">
+      <Filter>CubeDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="RotationDemo.cpp">
+      <Filter>RotationDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureDemo.cpp">
+      <Filter>TextureDemo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -31,6 +40,15 @@
     <ClInclude Include="GridDemo.h">
       <Filter>GridDemo</Filter>
     </ClInclude>
+    <ClInclude Include="CubeDemo.h">
+      <Filter>CubeDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="RotationDemo.h">
+      <Filter>RotationDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureDemo.h">
+      <Filter>TextureDemo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="VertexShader">
@@ -44,6 +62,15 @@
     </Filter>
     <Filter Include="GridDemo">
       <UniqueIdentifier>{79946ff5-ef2a-4433-89c8-df21d51b36f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CubeDemo">
+      <UniqueIdentifier>{fd2817ec-a422-46bd-b647-7c09d646dd44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RotationDemo">
+      <UniqueIdentifier>{01336ed6-ddb5-4b7a-8f3c-d32c9bdb0257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TextureDemo">
+      <UniqueIdentifier>{ca89b111-334f-4d4a-99f2-cb05a60f7560}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

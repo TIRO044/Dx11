@@ -53,21 +53,8 @@ void Freedom::Update()
 		Position(p);
 	}
 
-
 	Vector3 r;
 	Rotation(&r);
-	/*if(Mouse::Get()->Press(1))
-	{
-		auto val = Mouse::Get()->GetMoveValue();
-		r.x = r.x + val.y * rotation * Time::Delta();
-		r.y = r.y + val.x * rotation * Time::Delta();
-		r.z = 0.0f;
-
-		ImGui::LabelText("Value X", to_string(val.x).c_str());
-		ImGui::LabelText("Value Y", to_string(val.y).c_str());
-
-		Rotation(r);
-	}*/
 
 	if (Keyboard::Get()->Press('Z'))
 	{
@@ -85,22 +72,26 @@ void Freedom::Update()
 	{
 		r.y = r.y - 0.08f * rotation * Time::Delta();
 	}
+
+	if (Keyboard::Get()->Press('B'))
+	{
+		r.z = r.z + 0.08f * rotation * Time::Delta();
+	}
+	else if (Keyboard::Get()->Press('N'))
+	{
+		r.z = r.z - 0.08f * rotation * Time::Delta();
+	}
 	Rotation(r);
-	//ImGui::NewLine();
-	//auto rx = string("Rotation x");
-	//auto X = rx.append(to_string(r.x)).c_str();
-	//ImGui::LabelText(X, X);
-	//ImGui::NewLine();
 
 	ImGui::NewLine();
 	ImGui::LabelText("Rotation X", to_string(r.x).c_str());
 	ImGui::LabelText("Rotation Y", to_string(r.y).c_str());
+	ImGui::LabelText("Rotation Z", to_string(r.z).c_str());
 	ImGui::NewLine();
 }
 
 void Freedom::Speed(float move, float rotation)
 {
-
 	this->move = move;
 	this->rotation = rotation;
 }
