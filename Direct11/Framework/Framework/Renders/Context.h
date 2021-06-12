@@ -23,6 +23,7 @@ public:
 
 	class Perspective* GetPerspective() { return perspective; }
 	class Viewport* GetViewport() { return viewport; }
+	class Camera* GetCamera() { return camera; }
 
 private:
 	static Context* instance;

@@ -32,12 +32,11 @@ Context::Context()
 
 	perspective = new Perspective(desc.Width, desc.Height);
 	viewport = new Viewport(desc.Width, desc.Height);
-
 	camera = new Freedom();
 	Vector3 p;
-	p.x = 70;
+	p.x = -1;
 	p.y = 0;
-	p.z = 0;
+	p.z = -5;
 	
 	camera->Position(p);
 }
@@ -60,17 +59,18 @@ void Context::Update()
 	camera->Update();
 }
 
-Matrix Context::View()
-{
-	Matrix matrix;
-	camera->GetMatrix(&matrix);
-
-	return matrix;
-}
 
 void Context::Render()
 {
 	viewport->RSSetViewport();
+}
+
+Matrix Context::View()
+{
+	Matrix view;
+	camera->GetMatrix(&view);
+
+	return view;
 }
 
 D3DXMATRIX Context::Projection()
