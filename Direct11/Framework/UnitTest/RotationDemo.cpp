@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "WorldDemo.h"
+#include "RotationDemo.h"
 
-void World_Demo::Initialize()
+void RotationDemo::Initialize()
 {
 	shader = new Shader(L"MultiWorldShader.fx");
 
@@ -33,30 +33,30 @@ void World_Demo::Initialize()
 	}
 }
 
-void World_Demo::Ready()
+void RotationDemo::Ready()
 {
 	
 }
-void World_Demo::PreRender()
+void RotationDemo::PreRender()
 {
 
 }
-void World_Demo::PostRender()
+void RotationDemo::PostRender()
 {
 
 }
-void World_Demo::ResizeScreen()
+void RotationDemo::ResizeScreen()
 {
 
 }
 
-void World_Demo::Destroy()
+void RotationDemo::Destroy()
 {
 	SafeDelete(shader);
 	SafeRelease(vertexBuffer);
 }
 
-void World_Demo::Update()
+void RotationDemo::Update()
 {
 	ImGui::InputInt("Index", reinterpret_cast<int*>(&Index));
 	Index %=  3;
@@ -87,7 +87,7 @@ void World_Demo::Update()
 	}
 }
 
-void World_Demo::Render()
+void RotationDemo::Render()
 {
 	shader->AsMatrix("View")->SetMatrix(Context::Get()->View());
 	shader->AsMatrix("Projection")->SetMatrix(Context::Get()->Projection());
