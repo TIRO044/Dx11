@@ -13,6 +13,7 @@ public:
 	void PostRender() override;
 	void ResizeScreen() override;
 
+	void LoadTexture(wstring file);
 private :
 	Shader* shader;
 	VertexTexture vertices[6];
@@ -22,5 +23,7 @@ private :
 	ID3D11Buffer* IndexBuffer;
 	
 	Matrix world;
-	ID3D11ShaderResourceView* srv;
+	//ID3D11ShaderResourceView* srv;
+
+	Texture* texture = NULL;
 };

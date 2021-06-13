@@ -44,10 +44,6 @@ void TextureDemo::Initialize()
 	}
 
 	D3DXMatrixIdentity(&world);
-
-	Check(D3DX11CreateShaderResourceViewFromFile(
-		D3D::GetDevice(), L"../../_Texture/test.jpg", NULL, NULL, &srv, NULL
-	));
 }
 
 void TextureDemo::Ready()
@@ -76,7 +72,13 @@ void TextureDemo::Destroy()
 
 void TextureDemo::Update()
 {
-	
+	if (ImGui::Button("Open") == true)
+	{
+		function<void(wstring)> f = bind(&TextureDemo::LoadTexture, this, placeholders::_1);
+
+		D3DDesc desc = D3D::GetDesc();
+		Path::OpenFileDialog(L"", Path::ImageFilter, L"../../_Textures/", f, desc.Handle);
+	}
 }
 
 void TextureDemo::Render()
@@ -84,7 +86,7 @@ void TextureDemo::Render()
 	shader->AsMatrix("World")->SetMatrix(world);
 	shader->AsMatrix("View")->SetMatrix(Context::Get()->View());
 	shader->AsMatrix("Projection")->SetMatrix(Context::Get()->Projection());
-	shader->AsSRV("Map")->SetResource(srv);
+	if(texture != nullptr) shader->AsSRV("Map")->SetResource(texture->SRV());
 	
 	UINT stride = sizeof(VertexTexture);
 	UINT offset = 0;
@@ -95,4 +97,13 @@ void TextureDemo::Render()
 	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	
 	shader->DrawIndexed(0, 1, 6);
+}
+
+void TextureDemo::LoadTexture(wstring file)
+{
+	//D3DDesc desc = D3D::GetDesc();
+	//MessageBox(desc.Handle, file.c_str(), L"", MB_OK);
+	SafeDelete(texture);
+
+	texture = new Texture(file);
 }
