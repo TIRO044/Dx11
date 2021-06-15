@@ -30,6 +30,10 @@ VertexOutput VS(VertexInput input)
 SamplerState Samp;
 float4 PS(VertexOutput input) : SV_Target
 {
+    if (input.Uv.x < 0.5f) {
+        return float4(1, 0, 0, 1);
+    }
+    
     return Map.Sample(Samp, input.Uv);
 }
 
@@ -86,7 +90,7 @@ SamplerState Sampler_Address_Border
     AddressU = Border;
     AddressV = Border;
 
-    BorderColor = float4(0, 0, 1, 0,7);
+    BorderColor = float4(0, 0, 1, 1);
 }; // 색으로 채움
 
 float4 PS_AddressMode(VertexOutput input) : SV_Target
