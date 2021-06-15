@@ -26,4 +26,8 @@ private :
 	//ID3D11ShaderResourceView* srv;
 
 	Texture* texture = NULL;
+
+	UINT filter;
+
+	UINT address;
 };

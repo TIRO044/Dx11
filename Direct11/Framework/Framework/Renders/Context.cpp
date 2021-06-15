@@ -33,12 +33,12 @@ Context::Context()
 	perspective = new Perspective(desc.Width, desc.Height);
 	viewport = new Viewport(desc.Width, desc.Height);
 	camera = new Freedom();
-	Vector3 p;
+	/*Vector3 p;
 	p.x = -1;
 	p.y = 0;
 	p.z = -5;
-	
-	camera->Position(p);
+	*/
+	//camera->Position(p);
 }
 
 Context::~Context()

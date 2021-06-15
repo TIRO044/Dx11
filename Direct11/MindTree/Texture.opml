@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<opml version="1.0">
+  <head />
+  <body>
+    <outline text="Texture">
+      <outline text="cpp">
+        <outline text="초기화">
+          <outline text="texture.uv, index" />
+          <outline text="Texture 보여줄 때 필요한 게 무었이냐" />
+          <outline text="srv 세팅">
+            <outline text="ID3D11ShaderResourceView" />
+          </outline>
+        </outline>
+        <outline text="Redner">
+          <outline text="shader에 world, view, projection 세팅" />
+          <outline text="입력 조립기 세팅">
+            <outline text="만들어뒀던 버퍼 세팅" />
+            <outline text="topology세팅" />
+          </outline>
+          <outline text="쉐이더에 인덱스 그리기" />
+        </outline>
+      </outline>
+      <outline text="함수 ">
+        <outline text="ID3D11ShaderResourceView">
+          <outline text="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=sorkelf&amp;logNo=40169749877" />
+        </outline>
+      </outline>
+      <outline text="texture shader">
+        <outline text="쉐이더 input, output에 map 세팅" />
+        <outline text="map 이건 뭐지?" />
+      </outline>
+    </outline>
+    <outline text="Texture Sampler" style="Subtitle">
+      <outline text="정의">
+        <outline text="IA -&gt; VS -&gt; RS -&gt; PS">
+          <outline text="RS" />
+        </outline>
+        <outline text="크게 2가지 타입을 나뉜다">
+          <outline text="정점에 UV의 비율에 따라 이미지를 잘라주는 기능" />
+          <outline text="비율에 따라 확대 축소를 해준다.">
+            <outline text="SampleState (픽셀 보간 처리)" />
+          </outline>
+        </outline>
+      </outline>
+      <outline text="TextureShader.fx를 보자">
+        <outline text="PS에 Map.Sample(SampleState, uv)" />
+        <outline text="SampleState">
+          <outline text="Filter : 확대 / 축소를 실시 했을 때 중간 픽셀의 처리방법" />
+          <outline text="AddressMode : 1을 초과할 경우 어떻게 표현할 것인가" />
+        </outline>
+      </outline>
+      <outline text="Mip Mapping이란?">
+        <outline text="카메라와 물체의 거리에 따라 이미지의 확대/축소를 자동으로 실행해줌" />
+        <outline text="ex) 1024를 불러오면 다음 512, 256.. 총 8장의 텍스쳐를 미리 캐시해둠" />
+      </outline>
+    </outline>
+    <outline text="그 외">
+      <outline text="dxgi?">
+        <outline text="https://hannom.tistory.com/163" />
+      </outline>
+    </outline>
+  </body>
+</opml>
