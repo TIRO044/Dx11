@@ -2,6 +2,8 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
+#include "TerrainDemo.h"
+
 #include "TextureDemo.h"
 #include "CubeDemo.h"
 #include "GridDemo.h"
@@ -11,7 +13,8 @@
 
 void Main::Initialize()
 {
-	Push(new TextureDemo());
+	Push(new TerrainDemo());
+	//Push(new TextureDemo());
 	//Push(new GridDemo());
 	//Push(new CubeDemo());*/
 	//Push(new IndexDemo());

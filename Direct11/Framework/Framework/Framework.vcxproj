@@ -32,6 +32,7 @@
     <ClCompile Include="Systems\Mouse.cpp" />
     <ClCompile Include="Systems\Time.cpp" />
     <ClCompile Include="Systems\Window.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Utilities\BinaryFile.cpp" />
     <ClCompile Include="Utilities\Math.cpp" />
     <ClCompile Include="Utilities\Path.cpp" />
@@ -57,6 +58,7 @@
     <ClInclude Include="Systems\Mouse.h" />
     <ClInclude Include="Systems\Time.h" />
     <ClInclude Include="Systems\Window.h" />
+    <ClInclude Include="Terrain.h" />
     <ClInclude Include="Utilities\BinaryFile.h" />
     <ClInclude Include="Utilities\Math.h" />
     <ClInclude Include="Utilities\Path.h" />

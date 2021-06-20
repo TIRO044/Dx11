@@ -155,6 +155,7 @@
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TerrainDemo.cpp" />
     <ClCompile Include="TextureDemo.cpp" />
     <ClCompile Include="Vertex_Line.cpp" />
     <ClCompile Include="WorldDemo.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="RotationDemo.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TerrainDemo.h" />
     <ClInclude Include="TextureDemo.h" />
     <ClInclude Include="Vertex_Line.h" />
     <ClInclude Include="WorldDemo.h" />

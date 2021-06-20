@@ -13,6 +13,9 @@
     <Filter Include="Viewer">
       <UniqueIdentifier>{5707a9f3-617a-4952-af5b-7380449d2017}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enviorment">
+      <UniqueIdentifier>{4ab70145-0171-4e4a-82e3-3b268116f2d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -75,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="Freedom.cpp">
       <Filter>Viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Enviorment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +150,9 @@
     </ClInclude>
     <ClInclude Include="Freedom.h">
       <Filter>Viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Enviorment</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
