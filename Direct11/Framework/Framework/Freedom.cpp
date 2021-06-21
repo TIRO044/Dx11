@@ -39,11 +39,11 @@ void Freedom::Update()
 			p = p - u * move * Time::Delta();
 		}
 
-		if (Keyboard::Get()->Press('Q'))
+		if (Keyboard::Get()->Press('E'))
 		{
 			p = p + right * move * Time::Delta();
 		}
-		else if (Keyboard::Get()->Press('E'))
+		else if (Keyboard::Get()->Press('Q'))
 		{
 			p = p - right * move * Time::Delta();
 		}
@@ -53,41 +53,20 @@ void Freedom::Update()
 		Position(p);
 	}
 
-	Vector3 r;
-	Rotation(&r);
+	//Rotation
+	{
+		if (Mouse::Get()->Press(1) == false) return;
 
-	if (Keyboard::Get()->Press('Z'))
-	{
-		r.x = r.x + 0.08f * rotation * Time::Delta();
-	}
-	else if (Keyboard::Get()->Press('X'))
-	{
-		r.x = r.x - 0.08f * rotation * Time::Delta();
-	}
-	if (Keyboard::Get()->Press('C'))
-	{
-		r.y = r.y + 0.08f * rotation * Time::Delta();
-	}
-	else if (Keyboard::Get()->Press('V'))
-	{
-		r.y = r.y - 0.08f * rotation * Time::Delta();
-	}
+		Vector3 R;
+		Rotation(&R);
 
-	if (Keyboard::Get()->Press('B'))
-	{
-		r.z = r.z + 0.08f * rotation * Time::Delta();
-	}
-	else if (Keyboard::Get()->Press('N'))
-	{
-		r.z = r.z - 0.08f * rotation * Time::Delta();
-	}
-	Rotation(r);
+		Vector3 val = Mouse::Get()->GetMoveValue();
+		R.x = R.x + val.y * rotation * Time::Delta();
+		R.y = R.y + val.x * rotation * Time::Delta();
+		R.z = 0.0f;
 
-	ImGui::NewLine();
-	ImGui::LabelText("Rotation X", to_string(r.x).c_str());
-	ImGui::LabelText("Rotation Y", to_string(r.y).c_str());
-	ImGui::LabelText("Rotation Z", to_string(r.z).c_str());
-	ImGui::NewLine();
+		Rotation(R);
+	}
 }
 
 void Freedom::Speed(float move, float rotation)

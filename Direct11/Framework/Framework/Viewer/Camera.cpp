@@ -72,22 +72,18 @@ void Camera::GetMatrix(Matrix* matrix)
 
 void Camera::Rotation()
 {
-	Matrix x, y, z;
-	
-	D3DXMatrixRotationX(&x, rotation.x);
-	D3DXMatrixRotationY(&y, rotation.y);
-	D3DXMatrixRotationZ(&z, rotation.z);
-	// 이것을 하는 이유는, 회전된 공간으로 방향을 바꾸기 위함 그림 (1번 참조)
-		// 방향을 특정 공간으로 변환할 때 사용
-			// 위치를 특정 공간으로 변환할 때 사용 (자매품)
-			// D3DXVec3TransformCoord();
+	{
+		Matrix X, Y, Z;
+		D3DXMatrixRotationX(&X, rotation.x);
+		D3DXMatrixRotationY(&Y, rotation.y);
+		D3DXMatrixRotationZ(&Z, rotation.z);
 
-	// 회전이 되었으니 방향 normal들도 변경해주는 것
-	matRotation = x + y + z;
-	
-	D3DXVec3TransformNormal(&forward, &Vector3(0, 0, 1), &matRotation);
-	D3DXVec3TransformNormal(&up, &Vector3(0, 1, 0), &matRotation);
-	D3DXVec3TransformNormal(&right, &Vector3(1, 0, 0), &matRotation);
+		matRotation = X * Y * Z;
+
+		D3DXVec3TransformNormal(&forward, &Vector3(0, 0, 1), &matRotation);
+		D3DXVec3TransformNormal(&up, &Vector3(0, 1, 0), &matRotation);
+		D3DXVec3TransformNormal(&right, &Vector3(1, 0, 0), &matRotation);
+	}
 }
 
 void Camera::Move()
