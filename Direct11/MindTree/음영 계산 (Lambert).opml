@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<opml version="1.0">
+  <head />
+  <body>
+    <outline text="음영 계산 (Lambert)">
+      <outline text="이건 존나 쉽다" />
+      <outline text="내적 연산을 기본으로 함" />
+      <outline text="쉐이더">
+        <outline text="수정되는 부분" color="Yellow">
+          <outline text="input, output" style="Subtitle" color="Green" />
+          <outline text="Normal 값 추가됨">
+            <outline text="Float3" />
+          </outline>
+        </outline>
+        <outline text="추가되는 부분" color="Yellow">
+          <outline text="라이트 방향" style="Subtitle" color="Green">
+            <outline text="Float3" />
+          </outline>
+        </outline>
+        <outline text="추가되는 로직" color="Yellow">
+          <outline text="normal 값은, 반드시 월드 변환이 필요하다.">
+            <outline text="vertexShader에서 float3x3로 변환하는데, 여기서 w값은 방향, 스케일, 위치 행렬연산 중 (위치)를 소거할 때 사용된다." />
+            <outline text="pixelShader에선 동차로 이야기가 되는데 이건 나중에 이야기 해주신다고 함" />
+          </outline>
+          <outline text="픽셀 쉐이더에서 빛의 방향과 노멀의 내적 연산" />
+          <outline text="input.Color * dot (-lightDir * input.normal)" style="Subtitle" color="Green" />
+        </outline>
+      </outline>
+    </outline>
+  </body>
+</opml>
