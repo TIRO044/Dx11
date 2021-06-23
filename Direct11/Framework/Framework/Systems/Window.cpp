@@ -1,6 +1,7 @@
 #include "Framework.h"
 #include "Window.h"
 #include "IExecute.h"
+#include "Renders/DebugLine.h"
 
 IExecute* Window::mainExecute = NULL;
 
@@ -21,6 +22,7 @@ WPARAM Window::Run(IExecute * main)
 	Gui::Create();
 	Context::Create();
 
+	DebugLine::Create();
 
 	mainExecute->Initialize();
 
@@ -51,6 +53,7 @@ WPARAM Window::Run(IExecute * main)
 	Mouse::Delete();
 	Keyboard::Delete();
 	D3D::Delete();
+	DebugLine::Delete();
 
 	Destroy();
 
@@ -189,6 +192,8 @@ void Window::MainRender()
 	Gui::Get()->Update();
 	Context::Get()->Update();
 
+	DebugLine::Get()->Update();
+	
 	mainExecute->Update();
 
 	mainExecute->PreRender();
@@ -200,6 +205,7 @@ void Window::MainRender()
 	D3D::Get()->Clear(desc.Background);
 	{
 		Context::Get()->Render();
+		DebugLine::Get()->Render();
 		
 		mainExecute->Render();
 

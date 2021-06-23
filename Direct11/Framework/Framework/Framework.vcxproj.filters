@@ -82,6 +82,9 @@
     <ClCompile Include="Terrain.cpp">
       <Filter>Enviorment</Filter>
     </ClCompile>
+    <ClCompile Include="Renders\DebugLine.cpp">
+      <Filter>Renders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -153,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>Enviorment</Filter>
+    </ClInclude>
+    <ClInclude Include="Renders\DebugLine.h">
+      <Filter>Renders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

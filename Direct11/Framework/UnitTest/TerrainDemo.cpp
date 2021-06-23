@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "TerrainDemo.h"
 
-#include "TextureDemo.h"
-
 void TerrainDemo::Initialize()
 {
 	shader = new Shader(L"TerrainShader.fx");

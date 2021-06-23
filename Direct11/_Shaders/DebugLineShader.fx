@@ -1,16 +1,17 @@
 matrix World;
 matrix View;
 matrix Projection;
-Texture2D Map;
 
 struct VertexInput
 {
     float4 Position : Position;
+    float4 Color : COLOR;
 };
 
 struct VertexOutput
 {
     float4 Position : SV_Position;
+    float4 Color : COLOR;
 };
 
 VertexOutput VS(VertexInput input)
@@ -20,15 +21,14 @@ VertexOutput VS(VertexInput input)
     output.Position = mul(output.Position, View);
     output.Position = mul(output.Position, Projection);
 
-    output.Uv = input.Uv;
+    output.Color = input.Color;
 
     return output;
 }
 
-SamplerState Samp;
 float4 PS(VertexOutput input) : SV_Target
 {
-    return Map.Sample(Samp, input.Uv);
+    return input.Color;
 }
 
 technique11 T0

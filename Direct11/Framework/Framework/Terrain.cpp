@@ -1,6 +1,8 @@
 #include "Framework.h"
 #include "Terrain.h"
 
+#include "Renders/DebugLine.h"
+
 
 Terrain::Terrain()
 {
@@ -49,6 +51,14 @@ void Terrain::Update()
 void Terrain::Render()
 {
 	if (heightMap == nullptr) return;
+
+	for(int i = 0; i < vertexCount; i++)
+	{
+		auto start = vertices[i].Position;
+		auto end = vertices[i].Position + vertices[i].Normal * 2;
+
+		DebugLine::Get()->RenderLine(start, end, D3DXCOLOR(0, 1, 0, 1));
+	}
 
 	UINT stride = sizeof(VertexNormal);
 	UINT offset = 0;
