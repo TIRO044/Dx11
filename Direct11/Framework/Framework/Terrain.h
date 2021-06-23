@@ -2,7 +2,7 @@
 class Terrain
 {
 public :
-	typedef Vertex TerrainVertex;
+	typedef VertexNormal TerrainVertex;
 
 public :
 	Terrain();
@@ -16,6 +16,7 @@ public :
 public :
 	void SetVertexData();
 	void SetIndexData();
+	void SetNormalData();
 	void CreatBuffer();
 	void SetTexture(Shader* shader, wstring heightFile);
 
@@ -24,7 +25,7 @@ private:
 	Shader* myShader;
 	Texture* heightMap;
 	
-	UINT wVertexCount, hVertexCount;
+	UINT w, h;
 
 	UINT vertexCount;
 	TerrainVertex* vertices;

@@ -13,6 +13,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{6A280F05-6591-4CCD-974E-6F45A4EEDC67}"
 	ProjectSection(SolutionItems) = preProject
 		..\_Shaders\01_VertexShader.fx = ..\_Shaders\01_VertexShader.fx
+		..\_Shaders\DebugLineShader.fx = ..\_Shaders\DebugLineShader.fx
 		..\_Shaders\MultiWorldShader.fx = ..\_Shaders\MultiWorldShader.fx
 		..\_Shaders\TerrainShader.fx = ..\_Shaders\TerrainShader.fx
 		..\_Shaders\TextureSampleShader.fx = ..\_Shaders\TextureSampleShader.fx
