@@ -1,9 +1,6 @@
 #include "Framework.h"
 #include "Terrain.h"
 
-#include "Renders/DebugLine.h"
-
-
 Terrain::Terrain()
 {
 }
@@ -40,6 +37,13 @@ void Terrain::Update()
 {
 	if (heightMap == nullptr) return;
 
+	//Vector3 lightDir = Vector3(-1, -1, 1);
+	//ImGui::SliderFloat3("lightDir", lightDir, -1 , 1);
+	//myShader->AsVector("LightDir")->SetFloatVector(lightDir);
+
+	Vector3 dir = Context::Get()->GetCamera()->Forward();
+	myShader->AsVector("LightDir")->SetFloatVector(dir);
+
 	Matrix world;
 	D3DXMatrixIdentity(&world);
 
@@ -52,13 +56,13 @@ void Terrain::Render()
 {
 	if (heightMap == nullptr) return;
 
-	for(int i = 0; i < vertexCount; i++)
+	/*for(int i = 0; i < vertexCount; i++)
 	{
 		auto start = vertices[i].Position;
 		auto end = vertices[i].Position + vertices[i].Normal * 2;
 
 		DebugLine::Get()->RenderLine(start, end, D3DXCOLOR(0, 1, 0, 1));
-	}
+	}*/
 
 	UINT stride = sizeof(VertexNormal);
 	UINT offset = 0;
@@ -86,7 +90,7 @@ void Terrain::SetVertexData()
 	{
 		for (UINT x = 0; x < w; x++)
 		{
-			auto index = w * z + x;
+			auto index = (w * z + x);
 			auto pixelIndex = w * (h - 1 - z) + x;
 
 			vertices[index].Position.x = static_cast<float>(x);
