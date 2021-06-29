@@ -53,8 +53,8 @@ float Terrain::GetHeight(Vector3& position) const
 	for (auto i = 0; i < 4; i++)
 		p[i] = vertices[index[i]].Position;
 
-	auto ddx = (x - p[0].x) / 1.0f;
-	auto ddz = (z - p[0].z) / 1.0f;
+	auto ddx = (position.x - p[0].x) / 1.0f;
+	auto ddz = (position.z - p[0].z) / 1.0f;
 	Vector3 result;
 	
 	if(ddx + ddz > 1) {

@@ -31,20 +31,20 @@ void Freedom::Update()
 			p = p - f * move * Time::Delta() * speed;
 		}
 
-		if (Keyboard::Get()->Press('D'))
+		if (Keyboard::Get()->Press('Q'))
 		{
 			p = p + u * move * Time::Delta() * speed;
 		}
-		else if (Keyboard::Get()->Press('A'))
+		else if (Keyboard::Get()->Press('E'))
 		{
 			p = p - u * move * Time::Delta() * speed;
 		}
 
-		if (Keyboard::Get()->Press('E'))
+		if (Keyboard::Get()->Press('D'))
 		{
 			p = p + right * move * Time::Delta() * speed;
 		}
-		else if (Keyboard::Get()->Press('Q'))
+		else if (Keyboard::Get()->Press('A'))
 		{
 			p = p - right * move * Time::Delta() * speed;
 		}
