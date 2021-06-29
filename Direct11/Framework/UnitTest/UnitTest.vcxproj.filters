@@ -27,6 +27,9 @@
     <ClCompile Include="TerrainDemo.cpp">
       <Filter>TerrainDemo</Filter>
     </ClCompile>
+    <ClCompile Include="GetHeightDemo.cpp">
+      <Filter>GetHeightDemo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -55,6 +58,9 @@
     <ClInclude Include="TerrainDemo.h">
       <Filter>TerrainDemo</Filter>
     </ClInclude>
+    <ClInclude Include="GetHeightDemo.h">
+      <Filter>GetHeightDemo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="VertexShader">
@@ -80,6 +86,9 @@
     </Filter>
     <Filter Include="TerrainDemo">
       <UniqueIdentifier>{f2afb033-2f27-49b3-adf8-0ce213e11925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GetHeightDemo">
+      <UniqueIdentifier>{c9a34e31-0aaf-4e05-8b26-069672f0a95b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

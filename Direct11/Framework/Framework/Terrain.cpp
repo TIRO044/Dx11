@@ -33,16 +33,55 @@ void Terrain::SetTexture(Shader* shader, wstring heightFile)
 	CreatBuffer();
 }
 
+float Terrain::GetHeight(Vector3& position) const
+{
+	if (heightMap == nullptr) return 0;
+
+	const auto x = static_cast<UINT>(position.x);
+	const auto z = static_cast<UINT>(position.z);
+
+	if (x < 0 || x > w) return FLT_MIN;
+	if (z < 0 || z > h) return FLT_MIN;
+
+	UINT index[4];
+	index[0] = w * z + x;
+	index[1] = w * (z + 1) + x;
+	index[2] = w * z + x + 1;
+	index[3] = w * (z + 1) + (x + 1);
+
+	Vector3 p[4];
+	for (auto i = 0; i < 4; i++)
+		p[i] = vertices[index[i]].Position;
+
+	auto ddx = (x - p[0].x) / 1.0f;
+	auto ddz = (z - p[0].z) / 1.0f;
+	Vector3 result;
+	
+	if(ddx + ddz > 1) {
+		ddx = 1.0f - ddx;
+		ddz = 1.0f - ddz;
+
+		result = p[3] + (p[1] - p[3]) * ddx + (p[2] - p[3]) * ddz;
+	} else {
+		result = p[0] + (p[2] - p[0]) * ddx + (p[1] - p[0]) * ddz;
+	}
+	
+	return result.y;
+}
+
 void Terrain::Update()
 {
 	if (heightMap == nullptr) return;
 
-	//Vector3 lightDir = Vector3(-1, -1, 1);
-	//ImGui::SliderFloat3("lightDir", lightDir, -1 , 1);
-	//myShader->AsVector("LightDir")->SetFloatVector(lightDir);
+	Vector3 lightDir = Vector3(-1, -1, 1);
+	ImGui::SliderFloat3("lightDir", lightDir, -1 , 1);
+	myShader->AsVector("LightDir")->SetFloatVector(lightDir);
+	myShader->AsVector("Color")->SetFloatVector(ShaderColor);
+	/*Vector3 dir = Context::Get()->GetCamera()->Forward();
+	myShader->AsVector("LightDir")->SetFloatVector(dir);*/
 
-	Vector3 dir = Context::Get()->GetCamera()->Forward();
-	myShader->AsVector("LightDir")->SetFloatVector(dir);
+	ImGui::SliderInt("Pass", &pass, 0, 1);
+	ImGui::SliderFloat4("Color", ShaderColor, 0, 1);
 
 	Matrix world;
 	D3DXMatrixIdentity(&world);
@@ -86,9 +125,9 @@ void Terrain::SetVertexData()
 	SafeDeleteArray(vertices);
 	vertices = new TerrainVertex[vertexCount];
 
-	for (UINT z = 0; z < h; z++)
+	for (auto z = 0; z < h; z++)
 	{
-		for (UINT x = 0; x < w; x++)
+		for (auto x = 0; x < w; x++)
 		{
 			auto index = (w * z + x);
 			auto pixelIndex = w * (h - 1 - z) + x;
@@ -135,7 +174,6 @@ void Terrain::SetNormalData()
 		TerrainVertex v1 = vertices[index1];
 		TerrainVertex v2 = vertices[index2];
 
-
 		Vector3 a = v1.Position - v0.Position;
 		Vector3 b = v2.Position - v0.Position;
 
@@ -150,6 +188,7 @@ void Terrain::SetNormalData()
 	for (UINT i = 0; i < vertexCount; i++)
 		D3DXVec3Normalize(&vertices[i].Normal, &vertices[i].Normal);
 }
+
 
 void Terrain::CreatBuffer()
 {

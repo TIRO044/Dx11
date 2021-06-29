@@ -2,6 +2,7 @@ matrix World;
 matrix View;
 matrix Projection;
 float3 LightDir;
+float4 Color;
 
 struct VertexInput
 {
@@ -33,7 +34,7 @@ float4 PS(VertexOutput input) : SV_Target
     float3 normal = input.Normal;
     float3 dir = -LightDir;
     
-    return float4(1, 1, 1, 1) * dot(normal, dir);
+    return Color * dot(normal, dir);
 }
 
 RasterizerState FillMode_WireFrame

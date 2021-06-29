@@ -35,20 +35,3 @@ void TerrainDemo::Render()
 {
 	terrain->Render();
 }
-
-void TerrainDemo::Ready()
-{
-
-}
-void TerrainDemo::PreRender()
-{
-
-}
-void TerrainDemo::PostRender()
-{
-
-}
-void TerrainDemo::ResizeScreen()
-{
-
-}

@@ -11,7 +11,7 @@ public :
 	void Update();
 	void Render();
 
-	void Pass(UINT val) { pass = val; }
+	void Pass(int val) { pass = val; }
 
 public :
 	void SetVertexData();
@@ -20,8 +20,12 @@ public :
 	void CreatBuffer();
 	void SetTexture(Shader* shader, wstring heightFile);
 
+	float GetHeight(Vector3& position) const;
+
 private:
-	UINT pass = 0;
+	int pass = 0;
+	Vector4 ShaderColor;
+	
 	Shader* myShader;
 	Texture* heightMap;
 	
