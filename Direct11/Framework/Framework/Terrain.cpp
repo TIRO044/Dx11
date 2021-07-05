@@ -69,6 +69,45 @@ float Terrain::GetHeight(Vector3& position) const
 	return result.y;
 }
 
+float Terrain::GetVertexRayCast(Vector3& position) const
+{
+	if (heightMap == nullptr) return 0;
+	
+	auto x = static_cast<UINT>(position.x);
+	auto z = static_cast<UINT>(position.z);
+
+	if (x > w || x < 0) return x;
+	if (z > h || z < 0) return z;
+	
+	UINT index[4];
+	index[0] = w * z + x;
+	index[1] = w * (z + 1) + x;
+	index[2] = w * z + x + 1;
+	index[3] = w * (z + 1) + x + 1;
+
+	Vector3 p[4];
+	for (UINT i = 0; i < 4; i++)
+		p[i] = vertices[index[i]].Position;
+
+	Vector3 start, dir;
+	float u, v, dis;
+
+	start = Vector3(position.x, 50, position.z);
+	dir = Vector3(0, -1, 0);
+
+	Vector3 result;
+	
+	if(D3DXIntersectTri(&p[0], &p[1], &p[2], &start, &dir, &u, &v, &dis) == TRUE){
+		result = p[0] + (p[1] - p[0]) * u + (p[2] - p[0]) * v;
+	}
+
+	if (D3DXIntersectTri(&p[3], &p[1], &p[2], &start, &dir, &u, &v, &dis) == TRUE) {
+		result = p[3] + (p[1] - p[3]) * u + (p[2] - p[3]) * v;
+	}
+
+	return result.y;
+}
+
 void Terrain::Update()
 {
 	if (heightMap == nullptr) return;

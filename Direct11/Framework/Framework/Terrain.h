@@ -21,6 +21,7 @@ public :
 	void SetTexture(Shader* shader, wstring heightFile);
 
 	float GetHeight(Vector3& position) const;
+	float GetVertexRayCast(Vector3& position) const;
 
 private:
 	int pass = 0;

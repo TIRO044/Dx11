@@ -58,8 +58,8 @@ void GetHeightDemo::Update()
 		position.z -= 20.0f * Time::Delta();
 
 	terrain->Update();
-	position.y = terrain->GetHeight(position) + 1.0f;
-	
+	//position.y = terrain->GetHeight(position) + 1.0f;
+	position.y = terrain->GetVertexRayCast(position) + 1.0f;
 	Matrix r, p;
 	D3DXMatrixRotationX(&r, Math::ToRadian(180));
 	D3DXMatrixTranslation(&p, position.x, position.y, position.z);
