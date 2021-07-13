@@ -23,6 +23,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Freedom.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MeshQuad.cpp" />
     <ClCompile Include="Renders\Context.cpp" />
     <ClCompile Include="Renders\DebugLine.cpp" />
     <ClCompile Include="Renders\Shader.cpp" />
@@ -48,6 +50,8 @@
   <ItemGroup>
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Freedom.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshQuad.h" />
     <ClInclude Include="Renders\Context.h" />
     <ClInclude Include="Renders\DebugLine.h" />
     <ClInclude Include="Renders\Shader.h" />

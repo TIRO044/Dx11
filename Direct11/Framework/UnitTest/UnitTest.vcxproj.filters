@@ -30,6 +30,9 @@
     <ClCompile Include="GetHeightDemo.cpp">
       <Filter>GetHeightDemo</Filter>
     </ClCompile>
+    <ClCompile Include="MeshDemo.cpp">
+      <Filter>MeshDemo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -61,6 +64,9 @@
     <ClInclude Include="GetHeightDemo.h">
       <Filter>GetHeightDemo</Filter>
     </ClInclude>
+    <ClInclude Include="MeshDemo.h">
+      <Filter>MeshDemo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="VertexShader">
@@ -89,6 +95,9 @@
     </Filter>
     <Filter Include="GetHeightDemo">
       <UniqueIdentifier>{c9a34e31-0aaf-4e05-8b26-069672f0a95b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshDemo">
+      <UniqueIdentifier>{b8ee27be-301c-436b-9497-1552e04f6cf5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
