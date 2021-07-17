@@ -16,6 +16,9 @@
     <Filter Include="Enviorment">
       <UniqueIdentifier>{4ab70145-0171-4e4a-82e3-3b268116f2d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mesh">
+      <UniqueIdentifier>{6082080d-9684-46ce-b932-3176f482fd1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -84,6 +87,12 @@
     </ClCompile>
     <ClCompile Include="Renders\DebugLine.cpp">
       <Filter>Renders</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshQuad.cpp">
+      <Filter>Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="Renders\DebugLine.h">
       <Filter>Renders</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshQuad.h">
+      <Filter>Mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
+#include "MeshDemo.h"
 #include "GetHeightDemo.h"
 #include "TerrainDemo.h"
 #include "TextureDemo.h"
@@ -13,7 +14,8 @@
 
 void Main::Initialize()
 {
-	Push(new GetHeightDemo());
+	Push(new MeshDemo);
+	//Push(new GetHeightDemo());
 	//Push(new TerrainDemo());
 	//Push(new TextureDemo());
 	//Push(new GridDemo());
