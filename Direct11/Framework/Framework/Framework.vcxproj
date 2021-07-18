@@ -24,6 +24,8 @@
     </ClCompile>
     <ClCompile Include="Freedom.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MeshCube.cpp" />
+    <ClCompile Include="MeshGrid.cpp" />
     <ClCompile Include="MeshQuad.cpp" />
     <ClCompile Include="Renders\Context.cpp" />
     <ClCompile Include="Renders\DebugLine.cpp" />
@@ -51,6 +53,8 @@
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Freedom.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshCube.h" />
+    <ClInclude Include="MeshGrid.h" />
     <ClInclude Include="MeshQuad.h" />
     <ClInclude Include="Renders\Context.h" />
     <ClInclude Include="Renders\DebugLine.h" />

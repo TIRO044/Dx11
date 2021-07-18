@@ -9,23 +9,34 @@ void MeshDemo::Initialize()
 	meshShader = new Shader(L"MeshShader.fx");
 	sDirection = meshShader->AsVector("Direction");
 
-	meshQuad = new MeshQuad(meshShader);
-	meshQuad->SetDiffuseMap(L"grgrg.PNG");
+	//meshQuad = new MeshQuad(meshShader);
+	//meshQuad->SetDiffuseMap(L"grgrg.PNG");
+
+	//meshCube = new MeshCube(meshShader);
+	//meshCube->SetDiffuseMap(L"grgrg.PNG");
+	meshGrid = new MeshGrid(meshShader, 0, 0);
+	meshGrid->SetDiffuseMap(L"grgrg.PNG");
 }
 
 void MeshDemo::Destroy()
 {
 	SafeDelete(meshShader);
 	SafeDelete(meshQuad);
+	SafeDelete(meshCube);
+	SafeDelete(meshGrid);
 }
 
 void MeshDemo::Update()
 {
-	meshQuad->Update();
+	//meshQuad->Update();
+	//meshCube->Update();
+	meshGrid->Update();
 }
 
 void MeshDemo::Render()
 {
 	sDirection->SetFloatVector(direction);
-	meshQuad->Render();
+	//meshQuad->Render();
+	//meshCube->Render();
+	meshGrid->Render();
 }

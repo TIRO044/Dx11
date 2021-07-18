@@ -94,6 +94,12 @@
     <ClCompile Include="MeshQuad.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="MeshCube.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshGrid.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -173,6 +179,12 @@
       <Filter>Mesh</Filter>
     </ClInclude>
     <ClInclude Include="MeshQuad.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCube.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshGrid.h">
       <Filter>Mesh</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,8 @@
 #pragma once
 #include "Systems/IExecute.h"
 #include "MeshQuad.h"
+#include "MeshCube.h"
+#include "MeshGrid.h"
 
 class MeshDemo : public IExecute
 {
@@ -18,7 +20,9 @@ private :
 	Shader* meshShader;
 
 	MeshQuad* meshQuad;
-
-	Vector3 direction = Vector3(1, 1, 1);
+	MeshCube* meshCube;
+	MeshGrid* meshGrid;
+	
+	Vector3 direction = Vector3(-1, -1, -1);
 	ID3DX11EffectVectorVariable* sDirection;
 };

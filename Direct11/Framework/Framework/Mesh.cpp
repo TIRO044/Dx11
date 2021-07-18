@@ -17,8 +17,8 @@ Mesh::~Mesh()
 	SafeDeleteArray(vertices);
 	SafeDeleteArray(indices);
 
-	SafeDelete(vertexBuffer);
-	SafeDelete(indexBuffer);
+	if(vertexBuffer != nullptr) SafeRelease(vertexBuffer);
+	if(indexBuffer != nullptr) SafeRelease(indexBuffer);
 
 	SafeDelete(texture);
 }
@@ -79,7 +79,7 @@ Vector3 Mesh::Right()
 
 void Mesh::Render()
 {
-	if (vertexBuffer == NULL && indexBuffer == NULL)
+	if (vertexBuffer == nullptr && indexBuffer == nullptr)
 	{
 		Create();
 		CreateBuffer();
@@ -98,11 +98,15 @@ void Mesh::Render()
 
 	srv->SetResource(texture->SRV());
 
-	myShader->DrawIndexed(0, 0, indexCount);
+	myShader->DrawIndexed(0, Pass, indexCount);
 }
 
 void Mesh::Update()
 {
+	if(ImGui::InputInt("Pass", &Pass))
+	{
+		SetPass(Pass);
+	}
 }
 
 void Mesh::UpdateWorld()

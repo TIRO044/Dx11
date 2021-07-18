@@ -32,7 +32,7 @@ protected:
 	virtual void Create() = 0;
 	void CreateBuffer();
 protected:
-	UINT Pass;
+	int Pass;
 
 	Matrix world;
 	
