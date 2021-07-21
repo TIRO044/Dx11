@@ -100,6 +100,9 @@
     <ClCompile Include="MeshGrid.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="MeshSphere.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -185,6 +188,9 @@
       <Filter>Mesh</Filter>
     </ClInclude>
     <ClInclude Include="MeshGrid.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshSphere.h">
       <Filter>Mesh</Filter>
     </ClInclude>
   </ItemGroup>

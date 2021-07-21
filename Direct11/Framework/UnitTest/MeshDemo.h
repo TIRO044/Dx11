@@ -3,6 +3,7 @@
 #include "MeshQuad.h"
 #include "MeshCube.h"
 #include "MeshGrid.h"
+#include "MeshSphere.h"
 
 class MeshDemo : public IExecute
 {
@@ -22,6 +23,7 @@ private :
 	MeshQuad* meshQuad;
 	MeshCube* meshCube;
 	MeshGrid* meshGrid;
+	MeshSphere* meshSphere;
 	
 	Vector3 direction = Vector3(-1, -1, -1);
 	ID3DX11EffectVectorVariable* sDirection;
