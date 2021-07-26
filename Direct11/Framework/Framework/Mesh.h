@@ -18,7 +18,6 @@ public:
 	Vector3 Forward();
 	Vector3 Up();
 	Vector3 Right();
-protected:
 	void Position(Vector3* position);
 	void Position(Vector3& position);
 	void Scale(Vector3* scale);
@@ -26,6 +25,8 @@ protected:
 	void Rotate(Vector3* rotation);
 	void Rotate(Vector3& rotation);
 
+	protected:
+	
 	// World s, r, v ∞ˆ«ÿ¡‡æﬂ «—¥Ÿ.
 	void UpdateWorld();
 

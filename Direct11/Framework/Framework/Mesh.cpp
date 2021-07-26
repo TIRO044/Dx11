@@ -96,7 +96,8 @@ void Mesh::Render()
 	sView->SetMatrix(Context::Get()->View());
 	sProjection->SetMatrix(Context::Get()->Projection());
 
-	srv->SetResource(texture->SRV());
+	if(srv != nullptr)
+		srv->SetResource(texture->SRV());
 
 	myShader->DrawIndexed(0, Pass, indexCount);
 }

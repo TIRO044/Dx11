@@ -2,6 +2,7 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
+#include "CubeMapDemo.h"
 #include "MeshDemo.h"
 #include "GetHeightDemo.h"
 #include "TerrainDemo.h"
@@ -14,6 +15,7 @@
 
 void Main::Initialize()
 {
+	Push(new CubeMapDemo);
 	Push(new MeshDemo);
 	//Push(new GetHeightDemo());
 	//Push(new TerrainDemo());

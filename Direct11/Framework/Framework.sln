@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{6A
 	ProjectSection(SolutionItems) = preProject
 		..\_Shaders\01_VertexShader.fx = ..\_Shaders\01_VertexShader.fx
 		..\_Shaders\DebugLineShader.fx = ..\_Shaders\DebugLineShader.fx
+		..\_Shaders\MeshCubeShader.fx = ..\_Shaders\MeshCubeShader.fx
 		..\_Shaders\MeshShader.fx = ..\_Shaders\MeshShader.fx
 		..\_Shaders\MultiWorldShader.fx = ..\_Shaders\MultiWorldShader.fx
 		..\_Shaders\TerrainShader.fx = ..\_Shaders\TerrainShader.fx

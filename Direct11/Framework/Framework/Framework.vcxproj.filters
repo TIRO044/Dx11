@@ -19,6 +19,9 @@
     <Filter Include="Mesh">
       <UniqueIdentifier>{6082080d-9684-46ce-b932-3176f482fd1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{5c815dad-d72a-4e68-9e05-dafae5f7cbd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -102,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="MeshSphere.cpp">
       <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeMap.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +198,9 @@
     </ClInclude>
     <ClInclude Include="MeshSphere.h">
       <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeMap.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
