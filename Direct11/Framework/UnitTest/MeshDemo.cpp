@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "MeshDemo.h"
 
+#include "CubeMap.h"
+
 void MeshDemo::Initialize()
 {
 	Context::Get()->GetCamera()->RotationDegree(20, 0, 0);
@@ -19,6 +21,14 @@ void MeshDemo::Initialize()
 
 	meshSphere = new MeshSphere(meshShader, 5, 5, 5);
 	meshSphere->SetDiffuseMap(L"grgrg.PNG");
+	meshSphere->Position(Vector3(-10, -10, 0));
+	meshSphere->Scale(Vector3(3, 3, 3));
+	
+	_cubeMapShader = new Shader(L"CubeMapShader.fx");
+	_cubeMap = new CubeMap(_cubeMapShader);
+	_cubeMap->SetTextrue(L"Environment/Earth.dds");
+	_cubeMap->Position(Vector3(5, 5, 0));
+	_cubeMap->Scale(Vector3(3, 3, 3));
 }
 
 void MeshDemo::Destroy()
@@ -28,6 +38,7 @@ void MeshDemo::Destroy()
 	SafeDelete(meshCube);
 	SafeDelete(meshGrid);
 	SafeDelete(meshSphere);
+	SafeDelete(_cubeMapShader);
 }
 
 void MeshDemo::Update()
@@ -36,13 +47,18 @@ void MeshDemo::Update()
 	//meshCube->Update();
 	//meshGrid->Update();
 	meshSphere->Update();
+	_cubeMap->Update();
+
+	ImGui::InputFloat3("Light Dir", direction);
 }
 
 void MeshDemo::Render()
 {
 	sDirection->SetFloatVector(direction);
+
 	//meshQuad->Render();
 	//meshCube->Render();
 	//meshGrid->Render();
 	meshSphere->Render();
+	_cubeMap->Render();
 }

@@ -32,9 +32,8 @@ public:
 
 	virtual void Create() = 0;
 	void CreateBuffer();
+	int Pass = 0;
 protected:
-	int Pass;
-
 	Matrix world;
 	
 	Vector3 myPosition;
@@ -56,5 +55,5 @@ protected:
 	ID3DX11EffectMatrixVariable* sProjection;
 
 	Texture* texture = nullptr;
-	ID3DX11EffectShaderResourceVariable* srv;
+	ID3DX11EffectShaderResourceVariable* _sDiffuseMap;
 };

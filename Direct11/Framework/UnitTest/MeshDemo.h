@@ -4,6 +4,7 @@
 #include "MeshCube.h"
 #include "MeshGrid.h"
 #include "MeshSphere.h"
+#include "CubeMap.h"
 
 class MeshDemo : public IExecute
 {
@@ -25,6 +26,9 @@ private :
 	MeshGrid* meshGrid;
 	MeshSphere* meshSphere;
 
+	Shader* _cubeMapShader;
+	CubeMap* _cubeMap;
+	
 	Vector3 direction = Vector3(-1, -1, -1);
 	ID3DX11EffectVectorVariable* sDirection;
 };

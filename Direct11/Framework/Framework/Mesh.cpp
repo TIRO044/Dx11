@@ -6,10 +6,10 @@ Mesh::Mesh(Shader* shader) : myShader(shader)
 	D3DXMatrixIdentity(&world);
 
 	sWorld = myShader->AsMatrix("World");
-	sView= myShader->AsMatrix("View");
-	sProjection= myShader->AsMatrix("Projection");
+	sView = myShader->AsMatrix("View");
+	sProjection = myShader->AsMatrix("Projection");
 
-	srv = myShader->AsSRV("DiffuseMap");
+	_sDiffuseMap = myShader->AsSRV("DiffuseMap");
 }
 
 Mesh::~Mesh()
@@ -38,7 +38,7 @@ void Mesh::Position(Vector3* position)
 void Mesh::Position(Vector3& position)
 {
 	myPosition = position;
-	Update();
+	UpdateWorld();
 }
 
 void Mesh::Scale(Vector3* scale)
@@ -49,7 +49,7 @@ void Mesh::Scale(Vector3* scale)
 void Mesh::Scale(Vector3& scale)
 {
 	myScale = scale;
-	Update();
+	UpdateWorld();
 }
 
 void Mesh::Rotate(Vector3* rotation)
@@ -60,6 +60,7 @@ void Mesh::Rotate(Vector3* rotation)
 void Mesh::Rotate(Vector3& rotation)
 {
 	myRotation = rotation;
+	UpdateWorld();
 }
 
 Vector3 Mesh::Forward()
@@ -96,14 +97,16 @@ void Mesh::Render()
 	sView->SetMatrix(Context::Get()->View());
 	sProjection->SetMatrix(Context::Get()->Projection());
 
-	if(srv != nullptr)
-		srv->SetResource(texture->SRV());
+	if(texture != nullptr && _sDiffuseMap != nullptr)
+		_sDiffuseMap->SetResource(texture->SRV());
 
 	myShader->DrawIndexed(0, Pass, indexCount);
 }
 
 void Mesh::Update()
 {
+	if (_sDiffuseMap == nullptr) return;
+	
 	if(ImGui::InputInt("Pass", &Pass))
 	{
 		SetPass(Pass);

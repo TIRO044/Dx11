@@ -15,7 +15,7 @@
 
 void Main::Initialize()
 {
-	Push(new CubeMapDemo);
+	//Push(new CubeMapDemo);
 	Push(new MeshDemo);
 	//Push(new GetHeightDemo());
 	//Push(new TerrainDemo());

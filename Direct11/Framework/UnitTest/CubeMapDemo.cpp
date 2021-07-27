@@ -3,10 +3,12 @@
 
 void CubeMapDemo::Initialize()
 {
-	_shader = new Shader(L"MeshCubeShader.fx");
+	_shader = new Shader(L"CubeMapShader.fx");
 	_cubeMap = new CubeMap(_shader);
 	_cubeMap->SetTextrue(L"Environment/Earth.dds");
-	_cubeMap->Position(Vector3(0, 20, 0));
+
+	
+	_cubeMap->Position(Vector3(20, 20, 0));
 	_cubeMap->Scale(Vector3(0, 20, 0));
 }
 

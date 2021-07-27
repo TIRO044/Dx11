@@ -12,7 +12,6 @@ CubeMap::~CubeMap()
 {
 	SafeDelete(_cube);
 	SafeRelease(_srv);
-	SafeRelease(_sSrv);
 }
 
 void CubeMap::SetTextrue(wstring file)
@@ -20,20 +19,20 @@ void CubeMap::SetTextrue(wstring file)
 	SafeRelease(_srv);
 
 	file = L"../../_Textures/" + file;
+	auto str = file.c_str();
 	Check(D3DX11CreateShaderResourceViewFromFile(
-		D3D::GetDevice(), file.c_str(), NULL, NULL, &_srv, NULL
-		)
+		D3D::GetDevice(), str, NULL, NULL, &_srv, NULL)
 	);
 }
 
 void CubeMap::Update()
 {
-	_sSrv->SetResource(_srv);
 	_cube->Update();
 }
 
 void CubeMap::Render()
 {
+	_sSrv->SetResource(_srv);
 	_cube->Render();
 }
 

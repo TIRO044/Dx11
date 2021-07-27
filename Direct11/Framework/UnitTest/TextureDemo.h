@@ -23,7 +23,7 @@ private :
 	ID3D11Buffer* IndexBuffer;
 	
 	Matrix world;
-	//ID3D11ShaderResourceView* srv;
+	//ID3D11ShaderResourceView* _sDiffuseMap;
 
 	Texture* texture = NULL;
 

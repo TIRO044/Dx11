@@ -33,9 +33,6 @@
     <ClCompile Include="MeshDemo.cpp">
       <Filter>MeshDemo</Filter>
     </ClCompile>
-    <ClCompile Include="CubeMapDemo.cpp">
-      <Filter>MeshDemo</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -68,9 +65,6 @@
       <Filter>GetHeightDemo</Filter>
     </ClInclude>
     <ClInclude Include="MeshDemo.h">
-      <Filter>MeshDemo</Filter>
-    </ClInclude>
-    <ClInclude Include="CubeMapDemo.h">
       <Filter>MeshDemo</Filter>
     </ClInclude>
   </ItemGroup>
