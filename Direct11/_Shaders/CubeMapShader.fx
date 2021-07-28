@@ -1,7 +1,7 @@
 matrix World;
 matrix View;
 matrix Projection;
-Texture3D CubeMap;
+TextureCube CubeMap;
 
 struct VertexInput
 {
