@@ -38,7 +38,7 @@ protected:
 	
 	Vector3 myPosition;
 	Vector3 myRotation;
-	Vector3 myScale;
+	Vector3 myScale = Vector3(1, 1, 1);
 	
 	Shader* myShader;
 

@@ -26,10 +26,13 @@ void MeshDemo::Initialize()
 	
 	_cubeMapShader = new Shader(L"CubeMapShader.fx");
 	_cubeMap = new CubeMap(_cubeMapShader);
-	_cubeMap->SetTextrue(L"Environment/Earth.dds");
-	_cubeMap->Position(Vector3(5, 5, 0));
+	_cubeMap->SetTextrue(L"Environment/GrassCube1024.dds");
+	_cubeMap->Position(Vector3(7, 7, 0));
 	_cubeMap->Scale(Vector3(3, 3, 3));
+
+	_cubeSky = new CubeSky(L"Environment/Earth.dds");
 }
+
 
 void MeshDemo::Destroy()
 {
@@ -39,10 +42,12 @@ void MeshDemo::Destroy()
 	SafeDelete(meshGrid);
 	SafeDelete(meshSphere);
 	SafeDelete(_cubeMapShader);
+	SafeDelete(_cubeSky);
 }
 
 void MeshDemo::Update()
 {
+	_cubeSky->Update();
 	//meshQuad->Update();
 	//meshCube->Update();
 	//meshGrid->Update();
@@ -55,7 +60,8 @@ void MeshDemo::Update()
 void MeshDemo::Render()
 {
 	sDirection->SetFloatVector(direction);
-
+	_cubeSky->Render();
+	
 	//meshQuad->Render();
 	//meshCube->Render();
 	//meshGrid->Render();

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CubeMap.cpp" />
+    <ClCompile Include="CubeSky.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -53,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CubeMap.h" />
+    <ClInclude Include="CubeSky.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Freedom.h" />
     <ClInclude Include="Mesh.h" />

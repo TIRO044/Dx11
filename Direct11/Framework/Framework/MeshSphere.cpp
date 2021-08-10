@@ -51,8 +51,6 @@ void MeshSphere::Create()
 
 	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, vertexCount));
 
-
-
 	vector<UINT> i;
 	for (UINT k = 1; k <= _sliceCount; k++)
 	{
