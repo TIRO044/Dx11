@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="_buffer.cpp" />
     <ClCompile Include="CubeMap.cpp" />
     <ClCompile Include="CubeSky.cpp" />
     <ClCompile Include="Framework.cpp">
@@ -53,6 +54,7 @@
     <ClCompile Include="Viewer\Viewport.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="_buffer.h" />
     <ClInclude Include="CubeMap.h" />
     <ClInclude Include="CubeSky.h" />
     <ClInclude Include="Framework.h" />

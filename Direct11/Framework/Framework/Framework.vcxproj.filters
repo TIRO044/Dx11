@@ -22,6 +22,9 @@
     <Filter Include="Object">
       <UniqueIdentifier>{5c815dad-d72a-4e68-9e05-dafae5f7cbd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Buffer">
+      <UniqueIdentifier>{0a81b86a-824b-41ba-80f1-7580b07b5bda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -111,6 +114,9 @@
     </ClCompile>
     <ClCompile Include="CubeSky.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="_buffer.cpp">
+      <Filter>Buffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +213,9 @@
     </ClInclude>
     <ClInclude Include="CubeSky.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="_buffer.h">
+      <Filter>Buffer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
