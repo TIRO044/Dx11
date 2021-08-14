@@ -74,8 +74,9 @@ IndexBuffer::~IndexBuffer()
 
 void IndexBuffer::Render()
 {
+	UINT offset;
+	D3D::GetDC()->IASetIndexBuffer(_buffer, DXGI_FORMAT_R32_UINT, offset);
 }
-
 
 
 ConstantBuffer::ConstantBuffer(void* data, UINT dataSize)
