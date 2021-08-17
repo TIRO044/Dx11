@@ -115,7 +115,7 @@
     <ClCompile Include="CubeSky.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="_buffer.cpp">
+    <ClCompile Include="Buffer.cpp">
       <Filter>Buffer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -214,7 +214,7 @@
     <ClInclude Include="CubeSky.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="_buffer.h">
+    <ClInclude Include="Buffer.h">
       <Filter>Buffer</Filter>
     </ClInclude>
   </ItemGroup>

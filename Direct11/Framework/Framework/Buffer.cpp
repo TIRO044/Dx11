@@ -1,5 +1,5 @@
 #include "Framework.h"
-#include "_buffer.h"
+#include "Buffer.h"
 
 VertexBuffer::VertexBuffer(void* data, UINT count, UINT stride, UINT slot, bool bCpuWrite, bool bGpuWrite)
 	: data(data), count(count), stride(stride), slot(slot)
