@@ -25,6 +25,9 @@
     <Filter Include="Buffer">
       <UniqueIdentifier>{0a81b86a-824b-41ba-80f1-7580b07b5bda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Transform">
+      <UniqueIdentifier>{b59b5e0f-f098-4366-9734-fc285b9f6b99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -118,6 +121,13 @@
     <ClCompile Include="Buffer.cpp">
       <Filter>Buffer</Filter>
     </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Renders</Filter>
+    </ClCompile>
+    <ClCompile Include="PerFrame.cpp">
+      <Filter>Renders</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -217,5 +227,12 @@
     <ClInclude Include="Buffer.h">
       <Filter>Buffer</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Renders</Filter>
+    </ClInclude>
+    <ClInclude Include="PerFrame.h">
+      <Filter>Renders</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h" />
   </ItemGroup>
 </Project>

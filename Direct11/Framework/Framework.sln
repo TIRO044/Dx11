@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{6A
 		..\_Shaders\CubeMapShader.fx = ..\_Shaders\CubeMapShader.fx
 		..\_Shaders\CubeSkyShader.fx = ..\_Shaders\CubeSkyShader.fx
 		..\_Shaders\DebugLineShader.fx = ..\_Shaders\DebugLineShader.fx
+		..\_Shaders\Global.fx = ..\_Shaders\Global.fx
 		..\_Shaders\MeshShader.fx = ..\_Shaders\MeshShader.fx
 		..\_Shaders\MultiWorldShader.fx = ..\_Shaders\MultiWorldShader.fx
 		..\_Shaders\TerrainShader.fx = ..\_Shaders\TerrainShader.fx
