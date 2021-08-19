@@ -22,10 +22,10 @@ void MeshQuad::Create()
 	v.push_back(MeshVertex(+w, +h, 0, 1, 0, 0, 0, -1));
 
 	vertices = new MeshVertex[v.size()];
-	vertexCount = v.size();
+	_vertexCount = v.size();
 
-	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex* >(vertices, vertexCount));
+	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex* >(vertices, _vertexCount));
 	
-	indexCount = 6;
+	_indexCount = 6;
 	indices = new UINT[6] { 0, 1, 2, 2, 1, 3 };
 }

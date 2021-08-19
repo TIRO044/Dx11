@@ -1,24 +1,16 @@
 #include "Framework.h"
 #include "Mesh.h"
 
-Mesh::Mesh(Shader* shader) : myShader(shader)
+Mesh::Mesh(Shader* shader)
+	: Renderer(shader)
 {
-	D3DXMatrixIdentity(&world);
-
-	sWorld = myShader->AsMatrix("World");
-	sView = myShader->AsMatrix("View");
-	sProjection = myShader->AsMatrix("Projection");
-
-	_sDiffuseMap = myShader->AsSRV("DiffuseMap");
+	_sDiffuseMap = _shader->AsSRV("DiffuseMap");
 }
 
 Mesh::~Mesh()
 {
 	SafeDeleteArray(vertices);
 	SafeDeleteArray(indices);
-
-	if(vertexBuffer != nullptr) SafeRelease(vertexBuffer);
-	if(indexBuffer != nullptr) SafeRelease(indexBuffer);
 
 	SafeDelete(texture);
 }
@@ -30,123 +22,32 @@ void Mesh::SetDiffuseMap(wstring file)
 	texture = new Texture(file);
 }
 
-void Mesh::Position(Vector3* position)
-{
-	*position = myPosition;
-}
-
-void Mesh::Position(Vector3& position)
-{
-	myPosition = position;
-	UpdateWorld();
-}
-
-void Mesh::Scale(Vector3* scale)
-{
-	*scale = myPosition;
-}
-
-void Mesh::Scale(Vector3& scale)
-{
-	myScale = scale;
-	UpdateWorld();
-}
-
-void Mesh::Rotate(Vector3* rotation)
-{
-	*rotation = myRotation;
-}
-
-void Mesh::Rotate(Vector3& rotation)
-{
-	myRotation = rotation;
-	UpdateWorld();
-}
-
-Vector3 Mesh::Forward()
-{
-	return {world._31, world._32, world._33};
-}
-
-Vector3 Mesh::Up()
-{
-	return {world._21, world._22, world._23};
-}
-
-Vector3 Mesh::Right()
-{
-	return {world._11, world._12, world._13};
-}
-
 void Mesh::Render()
 {
-	if (vertexBuffer == nullptr && indexBuffer == nullptr)
+	if (_vertexBuffer == nullptr && _indexBuffer == nullptr)
 	{
 		Create();
-		CreateBuffer();
+		_vertexBuffer = new VertexBuffer(vertices, _vertexCount, sizeof(MeshVertex));
+		_indexBuffer = new IndexBuffer(vertices, _indexCount);
 	}
-	
-	UINT stride = sizeof(MeshVertex);
-	UINT offset = 0;
-	
-	D3D::GetDC()->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
-	D3D::GetDC()->IASetIndexBuffer(indexBuffer, DXGI_FORMAT_R32_UINT, 0);
-	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	sWorld->SetMatrix(world);
-	sView->SetMatrix(Context::Get()->View());
-	sProjection->SetMatrix(Context::Get()->Projection());
-
+	Super::Render();
+	
 	if(texture != nullptr && _sDiffuseMap != nullptr)
 		_sDiffuseMap->SetResource(texture->SRV());
 
-	myShader->DrawIndexed(0, Pass, indexCount);
+	_shader->DrawIndexed(0, Pass(), _indexCount);
 }
 
 void Mesh::Update()
 {
 	if (_sDiffuseMap == nullptr) return;
-	
-	if(ImGui::InputInt("Pass", &Pass))
-	{
-		SetPass(Pass);
-	}
-}
 
-void Mesh::UpdateWorld()
-{
-	Matrix s, r, t;
-	D3DXMatrixScaling(&s, myScale.x, myScale.y, myScale.z);
-	D3DXMatrixRotationYawPitchRoll(&r, myRotation.x, myRotation.y, myRotation.z);
-	D3DXMatrixTranslation(&t, myPosition.x, myPosition.y, myPosition.z);
+	//int p = 0;
+	//if(ImGui::InputInt("Pass", &p))
+	//{
+	//	Pass(p);
+	//}
 
-	world = s * r * t;
-}
-
-void Mesh::CreateBuffer()
-{
-	// 버택스 만드는 건
-	{
-		D3D11_BUFFER_DESC desc;
-		ZeroMemory(&desc, sizeof(D3D11_BUFFER_DESC));
-		desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-		desc.ByteWidth = sizeof(MeshVertex) * vertexCount;
-
-		D3D11_SUBRESOURCE_DATA subResource = {nullptr };
-		subResource.pSysMem = vertices;
-
-		Check(D3D::GetDevice()->CreateBuffer(&desc, &subResource, &vertexBuffer));
-	}
-
-	{
-		D3D11_BUFFER_DESC desc;
-		ZeroMemory(&desc, sizeof(D3D11_BUFFER_DESC));
-		desc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-		desc.ByteWidth = sizeof(UINT) * indexCount;
-
-		D3D11_SUBRESOURCE_DATA subResource = { nullptr };
-		subResource.pSysMem = indices;
-
-		Check(D3D::GetDevice()->CreateBuffer(&desc, &subResource, &indexBuffer));
-	}
+	Super::Update();
 }

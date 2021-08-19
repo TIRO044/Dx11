@@ -20,7 +20,7 @@ void PerFrame::Update()
 void PerFrame::Render()
 {
 	desc.View = Context::Get()->View();
-	D3DXMatrixInverse(&desc.ViewInverse, NULL, &desc.View);
+	D3DXMatrixInverse(&desc.ViewInverse, nullptr, &desc.View);
 
 	desc.Projection = Context::Get()->Projection();
 	desc.VP = desc.View * desc.Projection;

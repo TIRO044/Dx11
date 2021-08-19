@@ -24,18 +24,18 @@ void MeshGrid::Create()
 			MeshVertex vertex;
 			vertex.Position = Vector3(static_cast<float>(x) - w, 0, static_cast<float>(z) - h);
 			vertex.Normal = Vector3(0, 1, 0);
-			vertex.Uv = Vector2(static_cast<float>(x) / (float)countX, static_cast<float>(z) / (float)countY);
+			vertex.Uv = Vector2(static_cast<float>(x) / static_cast<float>(countX), static_cast<float>(z) / static_cast<float>(countY));
 
 			v.push_back(vertex);
 		}
 	}
 	
-	vertexCount = v.size();
-	vertices = new MeshVertex[vertexCount];
+	_vertexCount = v.size();
+	vertices = new MeshVertex[_vertexCount];
 	
-	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, vertexCount));
+	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, _vertexCount));
 
-	int wid = countX + 1;
+	const int wid = countX + 1;
 	vector<UINT> i;
 	for(UINT z = 0; z < countX; z++)
 	{
@@ -50,8 +50,8 @@ void MeshGrid::Create()
 		}
 	}
 	
-	indexCount = i.size();
-	indices = new UINT[indexCount];
+	_indexCount = i.size();
+	indices = new UINT[_indexCount];
 
-	copy(i.begin(), i.end(), stdext::checked_array_iterator<UINT*>(indices, indexCount));
+	copy(i.begin(), i.end(), stdext::checked_array_iterator<UINT*>(indices, _indexCount));
 }

@@ -55,13 +55,13 @@ void MeshCube::Create()
 
 
 	vertices = new MeshVertex[v.size()];
-	vertexCount = v.size();
+	_vertexCount = v.size();
 
-	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, vertexCount));
+	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, _vertexCount));
 
 
-	indexCount = 36;
-	this->indices = new UINT[indexCount]
+	_indexCount = 36;
+	this->indices = new UINT[_indexCount]
 	{
 		0, 1, 2, 0, 2, 3,
 		4, 5, 6, 4, 6, 7,

@@ -127,7 +127,9 @@
     <ClCompile Include="PerFrame.cpp">
       <Filter>Renders</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Renders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -233,6 +235,8 @@
     <ClInclude Include="PerFrame.h">
       <Filter>Renders</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Renderer.h">
+      <Filter>Renders</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

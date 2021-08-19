@@ -14,7 +14,7 @@ CubeSky::CubeSky(wstring file)
 			D3D::GetDevice(), file.c_str(), NULL, NULL, &_srv, NULL
 		)
 	);
-
+	
 	_sSrv = _shader->AsSRV("SkyCubeMap");
 }
 
@@ -23,23 +23,16 @@ CubeSky::~CubeSky()
 	SafeDelete(_shader);
 	SafeDelete(_sphere);
 
-	SafeRelease(_sSrv);
+	SafeDelete(_sSrv);
 }
 
-void CubeSky::Update()
+void CubeSky::Update() const
 {
-	/*Vector3 curPos;
-	_sphere->Position(&curPos);
-	ImGui::SliderFloat3("pos", curPos, 100, -100);
-	_sphere->Position(curPos);*/
-
-	/*if(ImGui::Button("Click"))
-	{*/
 	Vector3 position;
 	Context::Get()->GetCamera()->Position(&position);
 
-	_sphere->Position(position);
-	//}
+	_sphere->Update();
+	_sphere->GetTransform()->Position(position);
 }
 
 void CubeSky::Render()

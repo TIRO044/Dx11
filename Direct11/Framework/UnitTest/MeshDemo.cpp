@@ -10,6 +10,7 @@ void MeshDemo::Initialize()
 
 	meshShader = new Shader(L"MeshShader.fx");
 	sDirection = meshShader->AsVector("Direction");
+	auto t = meshShader->AsSRV("DiffuseMap");
 
 	//meshQuad = new MeshQuad(meshShader);
 	//meshQuad->SetDiffuseMap(L"grgrg.PNG");
@@ -19,16 +20,16 @@ void MeshDemo::Initialize()
 	/*meshGrid = new MeshGrid(meshShader, 0, 0);
 	meshGrid->SetDiffuseMap(L"grgrg.PNG");*/
 
-	meshSphere = new MeshSphere(meshShader, 5, 5, 5);
-	meshSphere->SetDiffuseMap(L"grgrg.PNG");
-	meshSphere->Position(Vector3(-10, -10, 0));
-	meshSphere->Scale(Vector3(3, 3, 3));
-	
-	_cubeMapShader = new Shader(L"CubeMapShader.fx");
-	_cubeMap = new CubeMap(_cubeMapShader);
-	_cubeMap->SetTextrue(L"Environment/GrassCube1024.dds");
-	_cubeMap->Position(Vector3(7, 7, 0));
-	_cubeMap->Scale(Vector3(3, 3, 3));
+	//meshSphere = new MeshSphere(meshShader, 5, 5, 5);
+	//meshSphere->SetDiffuseMap(L"grgrg.PNG");
+	//meshSphere->GetTransform()->Position(Vector3(-10, -10, 0));
+	//meshSphere->GetTransform()->Scale(Vector3(3, 3, 3));
+	//
+	//_cubeMapShader = new Shader(L"CubeMapShader.fx");
+	//_cubeMap = new CubeMap(_cubeMapShader);
+	//_cubeMap->SetTextrue(L"Environment/GrassCube1024.dds");
+	//_cubeMap->GetTransform()->Position(Vector3(7, 7, 0));
+	//_cubeMap->GetTransform()->Scale(Vector3(3, 3, 3));
 
 	_cubeSky = new CubeSky(L"Environment/Earth.dds");
 }
@@ -51,8 +52,8 @@ void MeshDemo::Update()
 	//meshQuad->Update();
 	//meshCube->Update();
 	//meshGrid->Update();
-	meshSphere->Update();
-	_cubeMap->Update();
+	//meshSphere->Update();
+	//_cubeMap->Update();
 
 	ImGui::InputFloat3("Light Dir", direction);
 }
@@ -65,6 +66,6 @@ void MeshDemo::Render()
 	//meshQuad->Render();
 	//meshCube->Render();
 	//meshGrid->Render();
-	meshSphere->Render();
-	_cubeMap->Render();
+	//meshSphere->Render();
+	//_cubeMap->Render();
 }

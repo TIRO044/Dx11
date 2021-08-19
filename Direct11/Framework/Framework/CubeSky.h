@@ -9,7 +9,7 @@ public:
 	~CubeSky();
 public:
 	void Render();
-	void Update();
+	void Update() const;
 
 protected:
 	Shader* _shader;

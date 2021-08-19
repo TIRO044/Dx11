@@ -47,9 +47,9 @@ void MeshSphere::Create()
 
 
 	vertices = new MeshVertex[v.size()];
-	vertexCount = v.size();
+	_vertexCount = v.size();
 
-	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, vertexCount));
+	copy(v.begin(), v.end(), stdext::checked_array_iterator<MeshVertex*>(vertices, _vertexCount));
 
 	vector<UINT> i;
 	for (UINT k = 1; k <= _sliceCount; k++)
@@ -86,9 +86,9 @@ void MeshSphere::Create()
 	}
 
 	indices = new UINT[i.size()];
-	indexCount = i.size();
+	_indexCount = i.size();
 
-	copy(i.begin(), i.end(), stdext::checked_array_iterator<UINT*>(indices, indexCount));
+	copy(i.begin(), i.end(), stdext::checked_array_iterator<UINT*>(indices, _indexCount));
 
 	int a = 0;
 }
